@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from account.views import hello
+import account.views as view
 
 urlpatterns = [
-    url(r'^hello/', hello),
+    # url(r'^hello/', view.hello),
+    url(r'^hello/(.*)/$', view.hello),
+    url(r'^user_list/$', view.UserListView.as_view())
 ]
+
